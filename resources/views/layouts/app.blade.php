@@ -7,16 +7,9 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
-        <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
-        <!-- Styles -->
-        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-
-        @livewireStyles
-
-        <!-- Scripts -->
-        <script src="{{ mix('js/app.js') }}" defer></script>
+        @include('layouts.commom_fonts')
+        @include('layouts.commom_css')
+        @include('layouts.commom_js')
     </head>
     <body class="font-sans antialiased">
         <x-jet-banner />
@@ -42,5 +35,7 @@
         @stack('modals')
 
         @livewireScripts
+
+        @include('partials.footer')
     </body>
 </html>
