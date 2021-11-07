@@ -25,12 +25,13 @@ class SocioFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => $this->faker->unique()->numberBetween(500,600),
+            'user_id' => $this->faker->numberBetween(500,600),
             'document_id'=> Document::all()->random()->id,
-            'celular' => $this->faker->unique()->numerify('9########'),
+            'celular' => $this->faker->numerify('9########'),
             'distrito' =>$this->faker->city(),
             'direccion' =>$this->faker->address(),
-            'numero' => $this->faker->unique()->numberBetween($this->faker->numerify('########'),$this->faker->numerify('#############')),
+            'numero' => $this->faker->numberBetween($this->faker->numerify('########'),$this->faker->numerify('#############')),
+            'status'=> $this->faker->randomElement([1,2])
         ];
     }
 }

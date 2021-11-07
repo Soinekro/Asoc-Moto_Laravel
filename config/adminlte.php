@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'Asociacion de Mototaxistas',
+    'title' => 'AdminLTE 3',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -45,7 +45,12 @@ return [
     |
     */
 
-
+    'logo' => '<b>Blog</b>CHUMCAERO',
+    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo_img_class' => 'brand-image img-circle elevation-3',
+    'logo_img_xl' => null,
+    'logo_img_xl_class' => 'brand-image-xs',
+    'logo_img_alt' => 'AdminLTE',
 
     /*
     |--------------------------------------------------------------------------
@@ -59,7 +64,7 @@ return [
     |
     */
 
-    'usermenu_enabled' => false,
+    'usermenu_enabled' => true,
     'usermenu_header' => false,
     'usermenu_header_class' => 'bg-primary',
     'usermenu_image' => false,
@@ -80,10 +85,9 @@ return [
 
     'layout_topnav' => null,
     'layout_boxed' => null,
-    'layout_fixed_sidebar' => null,
+    'layout_fixed_sidebar' => true,
     'layout_fixed_navbar' => null,
     'layout_fixed_footer' => null,
-    'layout_dark_mode' => null,
 
     /*
     |--------------------------------------------------------------------------
@@ -140,14 +144,14 @@ return [
     |
     */
 
-    'sidebar_mini' => 'lg',
+    'sidebar_mini' => true,
     'sidebar_collapse' => false,
     'sidebar_collapse_auto_size' => false,
     'sidebar_collapse_remember' => false,
     'sidebar_collapse_remember_no_transition' => true,
     'sidebar_scrollbar_theme' => 'os-theme-light',
     'sidebar_scrollbar_auto_hide' => 'l',
-    'sidebar_nav_accordion' => false,
+    'sidebar_nav_accordion' => true,
     'sidebar_nav_animation_speed' => 300,
 
     /*
@@ -165,8 +169,8 @@ return [
     'right_sidebar' => false,
     'right_sidebar_icon' => 'fas fa-cogs',
     'right_sidebar_theme' => 'dark',
-    'right_sidebar_slide' => false,
-    'right_sidebar_push' => false,
+    'right_sidebar_slide' => true,
+    'right_sidebar_push' => true,
     'right_sidebar_scrollbar_theme' => 'os-theme-light',
     'right_sidebar_scrollbar_auto_hide' => 'l',
 
@@ -183,7 +187,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => '/',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -218,8 +222,12 @@ return [
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Menu-Configuration
     |
     */
-
     'menu' => [
+        [
+            'text' => 'blog',
+            'route'  => 'admin.home',
+            'can'  => 'manage-blog',
+        ],
         [
             'text'        => 'DashBOARD',
             'route'         => 'admin.home',
@@ -236,43 +244,24 @@ return [
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
         ],
+        ['header' => 'Administracion de Usuarios'],
         [
-            'text'    => 'multilevel',
+            'text'    => 'usuarios',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text' => 'Postulantes',
+                    'route'  => 'admin.postulantes.index',
                 ],
                 [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
+                    'text'    => 'Socios',
+                    'route'     => 'admin.socios.index',
+                ],
                 ],
                 [
                     'text' => 'level_one',
                     'url'  => '#',
                 ],
-            ],
         ],
         ['header' => 'labels'],
         [
@@ -444,5 +433,5 @@ return [
     |
     */
 
-    'livewire' => false,
+    'livewire' => true,
 ];

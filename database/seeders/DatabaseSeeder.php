@@ -11,6 +11,7 @@ use Illuminate\Database\Seeder;
 
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -21,8 +22,19 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(RoleSeeder::class);
-        Postulante::factory(500)->create();
-        Socio::factory(100)->create();
+        Postulante::factory(800)->create();
+        $postulantes = Postulante::where('status', '=', 2)->get();
+        foreach ($postulantes as $p) {
+            Socio::factory(1)->create([
+                'user_id' => $p->user->id,
+                'document_id' => $p->document_id,
+                'celular' => $p->celular,
+                'distrito' => $p->distrito,
+                'direccion' => $p->direccion,
+                'numero' => $p->numero,
+            ]);
+        }
+
         Vehiculo::factory(100)->create();
         EvaluacionPostulante::factory(200)->create();
     }
