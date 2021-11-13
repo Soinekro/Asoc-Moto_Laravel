@@ -28,7 +28,7 @@ class CreatePostulantesTable extends Migration
             $table->text('direccion');
             $table->unsignedBigInteger('document_id');
             $table->foreign('document_id')->references('id')->on('documents');
-            $table->enum('status',[1,2])->default(1);
+            $table->enum('status',[1,2])->default(1)->comment('1=>Pendiente; 2 =>Evaluado');
             $table->string('distrito')->nullable();
             $table->timestamps();
         });

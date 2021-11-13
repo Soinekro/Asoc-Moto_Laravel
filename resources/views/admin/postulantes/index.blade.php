@@ -13,7 +13,7 @@
             {{ session('info') }}
         </div>
     @endif
-    @livewire('admin.postulantes.postulantes-index', ['postulantes' => $postulantes])
+    @livewire('admin.postulantes.postulantes-index')
 
 @stop
 

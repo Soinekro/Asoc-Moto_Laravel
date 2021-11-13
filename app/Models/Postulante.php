@@ -17,4 +17,8 @@ class Postulante extends Model
     public function document(){
         return $this->belongsTo(Document::class);
     }
+
+    public function evaluacion(){
+        return $this->belongsTo(EvaluacionPostulante::class);
+    }
 }

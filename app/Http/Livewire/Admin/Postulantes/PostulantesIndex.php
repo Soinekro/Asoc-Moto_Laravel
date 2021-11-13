@@ -16,10 +16,10 @@ class PostulantesIndex extends Component
     }
     public function render()
     {
-        $postulantes=Postulante::where('status','=',1)->where('users.name', 'like', '%'.$this->search.'%')->orwhere('users.email', 'like', '%'.$this->search.'%')
+        $postulantes=Postulante::where('users.name', 'like', '%'.$this->search.'%')->orwhere('users.email', 'like', '%'.$this->search.'%')
         ->join('users', 'postulantes.user_id', '=', 'users.id')
             ->select('postulantes.*', 'users.name as name','users.email as email')
-            ->orderBy('postulantes.id', 'desc')->Paginate(8);
+            ->orderBy('postulantes.id', 'desc')->Paginate(12);
         return view('livewire.admin.postulantes.postulantes-index',compact('postulantes'));
     }
 }

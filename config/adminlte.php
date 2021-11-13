@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'logo' => '<b>Blog</b>CHUMCAERO',
+    'logo' => '<b>Admin</b>Mototaxis',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -224,7 +224,7 @@ return [
     */
     'menu' => [
         [
-            'text' => 'blog',
+            'text' => 'Admin Motos',
             'route'  => 'admin.home',
             'can'  => 'manage-blog',
         ],
@@ -233,52 +233,58 @@ return [
             'route'         => 'admin.home',
             'icon'        => 'far fa-fw fa-file',
         ],
-        ['header' => 'account_settings'],
         [
-            'text' => 'profile',
-            'route'  => 'profile.show',
+            'text' => 'Roles',
+            'route'  => 'admin.roles.index',
             'icon' => 'fas fa-fw fa-user',
+            'can'=>'admin.roles.index',
         ],
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
+            'text' => 'Usuarios y Roles',
+            'route'  => 'admin.users.index',
+            'icon' => 'fas fa-fw fa-user',
+            'can'=>'admin.users.index',
         ],
-        ['header' => 'Administracion de Usuarios'],
+        ['header' => 'Administracion',],
         [
             'text'    => 'usuarios',
-            'icon'    => 'fas fa-fw fa-share',
+            'icon'        => 'fas fa-users fa-w',
             'submenu' => [
                 [
                     'text' => 'Postulantes',
                     'route'  => 'admin.postulantes.index',
+                    'can'=>'admin.postulantes.index',
                 ],
                 [
                     'text'    => 'Socios',
                     'route'     => 'admin.socios.index',
-                ],
+                    'can'=>'admin.socios.index',
                 ],
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text'    => 'Vehiculos Registrados',
+                    'route'     => 'admin.vehiculos.index',
+                    'can'=>'admin.vehiculos.index',
                 ],
+            ],
+
         ],
-        ['header' => 'labels'],
+        ['header' => 'movimientos'],
         [
-            'text'       => 'important',
+            'text'       => 'Socios Inactivos',
             'icon_color' => 'red',
-            'url'        => '#',
+            'route'        => 'admin.socios.inactivos',
+            'can'=>'admin.socios.inactivos',
         ],
         [
-            'text'       => 'warning',
+            'text'       => 'Socios sin Vehiculo',
             'icon_color' => 'yellow',
             'url'        => '#',
         ],
-        [
+        /* [
             'text'       => 'information',
             'icon_color' => 'cyan',
             'url'        => '#',
-        ],
+        ], */
     ],
 
     /*

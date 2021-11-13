@@ -1,4 +1,3 @@
 <div>
-    hola aqui va info de la empresa
-
+    Info empresa
 </div>

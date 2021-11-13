@@ -7,7 +7,7 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <td>Name</td>
+                    <td>Nombres</td>
                     <td>Email</td>
                     <td colspan="2" style="text-align: center">Acciones</td>
                 </tr>
@@ -17,6 +17,11 @@
                     <tr>
                         <td>{{$socio->name}}</td>
                         <td>{{$socio->email}}</td>
+                        <td>@if ($socio->status == 1)
+                            <label class="badge bg-success">Activo</label>
+                        @else
+                            <label class="badge bg-danger">Inactivo</label>
+                        @endif</td>
                         <td width="10px">
                             <a class="btn btn-primary btn-sm" href="{{route('admin.socios.edit',$socio)}}">Editar</a>
                         </td>

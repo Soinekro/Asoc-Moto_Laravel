@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +17,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 })->name('inicio');
+
+Route::get('conocenos', function () {
+    return view('conocenos');
+})->name('conocenos');
+
+Route::get('contacto', [ContactoController::class, 'index'])->name('contacto');
+
+Route::post('contactanos', [ContactoController::class , 'store'])->name('contacto.store');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/home', function () {
     return redirect()->route('admin.home');

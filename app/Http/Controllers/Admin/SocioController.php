@@ -11,12 +11,31 @@ use Illuminate\Support\Facades\DB;
 
 class SocioController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:admin.socios.index')->only('index');
+        $this->middleware('can:admin.socios.create')->only('create', 'store');
+        $this->middleware('can:admin.socios.edit')->only('update','edit');
+        $this->middleware('can:admin.socios.inactivos')->only('inactivos');
+    }
     public function index()
     {
         $socios = DB::table('socios')->join('users', 'socios.user_id', '=', 'users.id')
         ->select('socios.*', 'users.name')
         ->orderBy('socios.id', 'desc')->Paginate(10);
         return view('admin.socios.index', compact('socios'));
+    }
+    public function inactivos()
+    {
+        $sociosIna = Socio::where('status', '==', 2)
+            ->join('users', 'socios.user_id', '=', 'users.id')
+            ->select('socios.*', 'users.name as name', 'users.email as email')
+            ->orderBy('socios.id', 'desc')->Paginate(10);
+        $socios = Socio::where('status','=',2)
+        ->join('users', 'socios.user_id', '=', 'users.id')
+        ->select('socios.*', 'users.name as name','users.email as email')
+            ->orderBy('socios.id', 'desc')->Paginate(10);;
+        return view('admin.socios.inactive', compact('socios','sociosIna'));
     }
 
     public function edit(Socio $socio)

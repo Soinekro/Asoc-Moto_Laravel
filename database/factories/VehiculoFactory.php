@@ -25,7 +25,7 @@ class VehiculoFactory extends Factory
         return [
             'socio_id'=> Socio::all()->unique()->random()->id,
             'placa'=> $this->faker->unique()->numerify('######'),
-            'titulo'=> $this->faker->unique()->word(),
+            'titulo'=> $this->faker->unique()->numerify('#################'),
             'soat' =>$this->faker->unique()->numerify('#########'),
             'modeloVehiculo' =>$this->faker->word(),
             'serieMotor'=> $this->faker->unique()->numerify('#############'),

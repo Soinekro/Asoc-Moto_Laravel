@@ -23,7 +23,7 @@ class CreateSociosTable extends Migration
             $table->unsignedBigInteger('document_id');
             $table->foreign('document_id')->references('id')->on('documents');
             $table->string('distrito')->nullable();
-            $table->enum('status',[1,2])->default(1);
+            $table->enum('status',[1,2])->default(1)->comment('1=>Activo; 2 Inactivo');
             $table->timestamps();
         });
     }

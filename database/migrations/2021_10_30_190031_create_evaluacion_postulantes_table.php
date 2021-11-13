@@ -19,7 +19,7 @@ class CreateEvaluacionPostulantesTable extends Migration
             $table->foreign('socio_id')->references('id')->on('socios')->onDelete('cascade');
             $table->unsignedBigInteger('postulante_id');
             $table->foreign('postulante_id')->references('id')->on('postulantes')->onDelete('cascade');
-            $table->enum('status',[0,1,2])->default(1);
+            $table->enum('status',[0,1,2])->default(1)->comment('0 => Desaprobado; 1 => Pendiente; 2 => Aprobado');
             $table->timestamps();
         });
     }

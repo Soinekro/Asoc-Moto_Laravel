@@ -12,12 +12,19 @@ use App\Models\User;
 
 class PostulanteController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:admin.postulantes.index')->only('index');
+        $this->middleware('can:admin.postulantes.destroy')->only('destroy');
+        $this->middleware('can:admin.postulantes.create')->only('create', 'store');
+        $this->middleware('can:admin.postulantes.edit')->only('update','edit','show');
+    }
     public function index()
     {
         $postulantes = Postulante::where('status', '=', 1)
             ->join('users', 'postulantes.user_id', '=', 'users.id')
             ->select('postulantes.*', 'users.name')
-            ->orderBy('postulantes.id', 'desc')->Paginate(10);
+            ->orderBy('postulantes.id', 'desc')->get();
         return view('admin.postulantes.index', compact('postulantes'));
     }
 

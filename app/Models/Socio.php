@@ -13,6 +13,11 @@ class Socio extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+
+    public function vehiculo(){
+        return $this->belongsTo(Vehiculo::class);
+    }
+
     public function document(){
         return $this->belongsTo(Document::class);
     }
