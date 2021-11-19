@@ -101,6 +101,26 @@ class RoleSeeder extends Seeder
         Permission::create(['name'=>'admin.users.destroy',
         'description'=>'eliminar usuario'])->syncRoles([$role1,$role4,$role3]);
 
+        Permission::create(['name'=>'admin.evaluacion.index',
+        'description'=>'ver Evaluaciones'])->syncRoles([$role1,$role2,$role3,$role4,$role5,$role6]);
+        Permission::create(['name'=>'admin.evaluacion.create',
+        'description'=>'Crear Evaluacion'])->syncRoles([$role1,$role4,$role3,$role5,$role6]);
+        Permission::create(['name'=>'admin.evaluacion.store',
+        'description'=>'guardar Evaluacion'])->syncRoles([$role1,$role4,$role3,$role5,$role6]);
+
+        Permission::create(['name'=>'admin.eventos.index',
+        'description'=>'ver Eventos'])->syncRoles([$role1,$role2,$role3,$role4,$role5,$role6]);
+        Permission::create(['name'=>'admin.eventos.create',
+        'description'=>'Crear Evento'])->syncRoles([$role1,$role4,$role3,$role5,$role6]);
+        Permission::create(['name'=>'admin.eventos.store',
+        'description'=>'guardar Evento'])->syncRoles([$role1,$role4,$role3,$role5,$role6]);
+        Permission::create(['name'=>'admin.eventos.edit',
+        'description'=>'editar Evento'])->syncRoles([$role1,$role3]);
+        Permission::create(['name'=>'admin.eventos.update',
+        'description'=>'actualizar Evento'])->syncRoles([$role1,$role3]);
+        Permission::create(['name'=>'admin.eventos.destroy',
+        'description'=>'Crear Evento'])->syncRoles([$role1,$role3]);
+
         User::create([
             'name'=>'Elder Jose Chumacero Jimenez',
             'email'=>'echumaceroj@mail.com',

@@ -10,7 +10,6 @@ class SearchPostulante extends Component
 {
     public $search;
 
-
     public function render()
     {
         $postulantes = User::where('name', 'like', '%'.$this->search.'%')->paginate(4);

@@ -5,16 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class EvaluacionPostulante extends Model
+class Justificacion extends Model
 {
+    protected $guarded =[
+        'id',
+        'created_at',
+        'updated_at'
+    ];
     use HasFactory;
-    protected $guarded = ['id','created_at','updated_at'];
-
-    public function postulante(){
-        return $this->belongsTo(Postulante::class);
-    }
 
     public function socio(){
         return $this->belongsTo(Socio::class);
+    }
+    public function evento(){
+        return $this->belongsTo(EventoSocio::class,'evento_socios_id');
     }
 }

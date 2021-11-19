@@ -21,4 +21,7 @@ class Socio extends Model
     public function document(){
         return $this->belongsTo(Document::class);
     }
+    public function justificaciones(){
+        return $this->belongsTo(Justificacion::class);
+    }
 }

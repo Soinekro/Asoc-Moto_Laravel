@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\EvaluacionPostulante;
+use App\Models\EventoSocio;
+use App\Models\Justificacion;
 use App\Models\Postulante;
 use App\Models\Socio;
 use App\Models\User;
@@ -37,5 +39,8 @@ class DatabaseSeeder extends Seeder
 
         Vehiculo::factory(100)->create();
         EvaluacionPostulante::factory(200)->create();
+
+        EventoSocio::factory(100)->create();
+        Justificacion::factory(200)->create();
     }
 }

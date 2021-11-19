@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>Mototaxis',
+    'logo' => '<b>Blog</b>CHUMCAERO',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -222,6 +222,7 @@ return [
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Menu-Configuration
     |
     */
+
     'menu' => [
         [
             'text' => 'Admin Motos',
@@ -268,23 +269,20 @@ return [
             ],
 
         ],
-        ['header' => 'movimientos'],
+        ['header' => 'Eventos'],
         [
-            'text'       => 'Socios Inactivos',
-            'icon_color' => 'red',
-            'route'        => 'admin.socios.inactivos',
-            'can'=>'admin.socios.inactivos',
+            'text'       => 'Evaluaciones de Postulantes',
+            'route'        => 'admin.evaluaciones.index',
         ],
         [
-            'text'       => 'Socios sin Vehiculo',
-            'icon_color' => 'yellow',
-            'url'        => '#',
+            'text'       => 'Eventos',
+            'route'        => 'admin.eventos.index',
         ],
-        /* [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
-        ], */
+        [
+            'text'       => 'Justificaciones',
+            'route'        => 'admin.justificaciones.index',
+        ],
+
     ],
 
     /*
@@ -317,7 +315,7 @@ return [
     | Here we can modify the plugins used inside the admin panel.
     |
     | For detailed instructions you can look the plugins section here:
-    | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Plugins-Configuration
+    | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Other-Configuration
     |
     */
 
@@ -396,39 +394,6 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | IFrame
-    |--------------------------------------------------------------------------
-    |
-    | Here we change the IFrame mode configuration. Note these changes will
-    | only apply to the view that extends and enable the IFrame mode.
-    |
-    | For detailed instructions you can look the iframe mode section here:
-    | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/IFrame-Mode-Configuration
-    |
-    */
-
-    'iframe' => [
-        'default_tab' => [
-            'url' => null,
-            'title' => null,
-        ],
-        'buttons' => [
-            'close' => true,
-            'close_all' => true,
-            'close_all_other' => true,
-            'scroll_left' => true,
-            'scroll_right' => true,
-            'fullscreen' => true,
-        ],
-        'options' => [
-            'loading_screen' => 1000,
-            'auto_show_new_tab' => true,
-            'use_navbar_items' => true,
-        ],
-    ],
-
-    /*
-    |--------------------------------------------------------------------------
     | Livewire
     |--------------------------------------------------------------------------
     |
@@ -436,7 +401,6 @@ return [
     |
     | For detailed instructions you can look the livewire here:
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Other-Configuration
-    |
     */
 
     'livewire' => true,

@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\EvaluacionPostulanteController;
+use App\Http\Controllers\Admin\EventoSocioController;
+use App\Http\Controllers\Admin\JustificacionController;
 use App\Http\Controllers\Admin\PostulanteController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SocioController;
@@ -38,4 +41,22 @@ Route::prefix('/vehiculos')->group(function () {
     Route::get('{vehiculo}/edit', [VehiculoController::class,'edit'])->name('admin.vehiculos.edit');
     Route::post('{vehiculo}/update', [VehiculoController::class,'update'])->name('admin.vehiculos.update');
     Route::delete('{vehiculo}',[VehiculoController::class,'destroy'])->name('admin.vehiculos.destroy');
+});
+
+Route::prefix('/evaluaciones')->group(function () {
+    Route::get('/', [EvaluacionPostulanteController::class,'index'])->name('admin.evaluaciones.index');
+});
+
+Route::prefix('/eventos')->group(function () {
+    Route::get('/', [EventoSocioController::class,'index'])->name('admin.eventos.index');
+    Route::get('create', [EventoSocioController::class,'create'])->name('admin.eventos.create');
+    Route::post('store', [EventoSocioController::class,'store'])->name('admin.eventos.store');
+});
+
+Route::prefix('/justificaciones')->group(function () {
+    Route::get('/', [JustificacionController::class,'index'])->name('admin.justificaciones.index');
+    Route::get('create', [JustificacionController::class,'create'])->name('admin.justificaciones.create');
+    Route::post('store', [JustificacionController::class,'store'])->name('admin.justificaciones.store');
+    Route::get('edit', [JustificacionController::class,'edit'])->name('admin.justificaciones.edit');
+    Route::post('update', [JustificacionController::class,'update'])->name('admin.justificaciones.update');
 });
