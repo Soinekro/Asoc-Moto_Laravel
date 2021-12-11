@@ -16,10 +16,10 @@ class EventosIndex extends Component
     }
     public function render()
     {
-        $eventos = EventoSocio::where('name_evento', 'like', '%'.$this->search.'%')
+        $eventos = EventoSocio::where('fecha_hora','>=','CURDATE()')
+        ->where('name_evento', 'like', '%'.$this->search.'%')
         ->orwhere('descripcion_evento', 'like', '%'.$this->search.'%')
-        ->where('fecha_hora','>=','CURDATE()')
-        ->orderBy('fecha_hora','ASC')
+        ->orderBy('fecha_hora','DESC')
         ->paginate(10);
         return view('livewire.admin.eventos.eventos-index',compact('eventos'));
     }

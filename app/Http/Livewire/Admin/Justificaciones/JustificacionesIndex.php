@@ -16,13 +16,12 @@ class JustificacionesIndex extends Component
     }
     public function render()
     {
-        $justificaciones = Justificacion::orwhere('name_evento', 'like', '%'.$this->search.'%')
+        $justificaciones = Justificacion::where('name_evento', 'like', '%'.$this->search.'%')
         ->orwhere('name', 'like', '%'.$this->search.'%')
         ->join('evento_socios','justificacions.evento_socios_id','=','evento_socios.id')
         ->join('socios','justificacions.socio_id','=','socios.id')
         ->join('users','socios.user_id','=','users.id')
-        ->paginate(10)
-        ;
+        ->paginate(10);
         return view('livewire.admin.justificaciones.justificaciones-index',compact('justificaciones'));
     }
 }

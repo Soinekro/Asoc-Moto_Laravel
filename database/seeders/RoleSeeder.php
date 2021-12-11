@@ -29,10 +29,9 @@ class RoleSeeder extends Seeder
         $role8 = Role::create(['name' => '2-Vocal']);
         $role9 = Role::create(['name' => 'Fiscal']);
         $role10 = Role::create(['name' => 'Asistente']);
-        $role11 = Role::create(['name' => 'Mototaxista']);
 
         Permission::create(['name'=>'admin.home',
-        'description'=>'ver dashboard'])->syncRoles([$role1,$role2,$role3,$role4,$role5,$role6,$role7,$role8,$role9,$role10,$role11]);
+        'description'=>'ver dashboard'])->syncRoles([$role1,$role2,$role3,$role4,$role5,$role6,$role7,$role8,$role9,$role10]);
 
         Permission::create(['name'=>'admin.postulantes.index',
         'description'=>'ver Postulantes'])->syncRoles([$role1,$role5,$role3,$role4,$role5]);
@@ -137,7 +136,7 @@ class RoleSeeder extends Seeder
             'name'=>'Maria Jose Tejeda Coca',
             'email'=>'MariaCoca@mail.com',
             'password'=>bcrypt('maria123'),
-        ])->assignRole('VicePresidente');
+        ])->assignRole('Secretario');
 
 
         Document::create([

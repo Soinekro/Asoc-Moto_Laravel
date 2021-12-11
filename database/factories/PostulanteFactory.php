@@ -25,12 +25,12 @@ class PostulanteFactory extends Factory
     {
         return [
             'user_id' => $this->faker->unique->numberBetween(1,$this->faker->numerify('9##')),
-            'document_id'=> Document::all()->random()->id,
-            'celular' => $this->faker->unique()->numerify('9########'),
+            'document_id'=> 1,
+            'celular' => $this->faker->numerify('9########'),
             'distrito' =>$this->faker->city(),
             'direccion' =>$this->faker->address(),
-            'numero' => $this->faker->numberBetween(80000000,9999999999999),
-            'status' => rand(1,2),
+            'numero' => $this->faker->numerify('########'),
+            'status'=> $this->faker->randomElement([1,2])
         ];
     }
 }

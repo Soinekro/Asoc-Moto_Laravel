@@ -26,11 +26,11 @@ class SocioFactory extends Factory
     {
         return [
             'user_id' => $this->faker->numberBetween(500,600),
-            'document_id'=> Document::all()->random()->id,
+            'document_id'=> 1,
             'celular' => $this->faker->numerify('9########'),
             'distrito' =>$this->faker->city(),
             'direccion' =>$this->faker->address(),
-            'numero' => $this->faker->numberBetween($this->faker->numerify('########'),$this->faker->numerify('#############')),
+            'numero' => $this->faker->numerify('########'),
             'status'=> $this->faker->randomElement([1,2])
         ];
     }

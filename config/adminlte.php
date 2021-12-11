@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'logo' => '<b>Blog</b>CHUMCAERO',
+    'logo' => '<b>asoc</b>MOTOS',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -281,6 +281,10 @@ return [
         [
             'text'       => 'Justificaciones',
             'route'        => 'admin.justificaciones.index',
+        ],
+        [
+            'text'       => 'Pagos',
+            'route'        => 'admin.pagos.index',
         ],
 
     ],

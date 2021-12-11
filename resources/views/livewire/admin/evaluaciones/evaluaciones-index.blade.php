@@ -11,6 +11,7 @@
                         <th>Socio</th>
                         <th>Estado</th>
                         <th>Distrito</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -28,7 +29,7 @@
                                 @endif
                             </td>
                             <td>{{ $p->postulante->distrito }}</td>
-                            {{-- <td width="10px">
+                            <td width="10px">
                                 <a class="btn btn-primary btn-sm"
                                     href="{{ route('admin.evaluaciones.edit', $p) }}">Editar</a>
                             </td>
@@ -39,7 +40,7 @@
                                     <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
 
                                 </form>
-                            </td> --}}
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

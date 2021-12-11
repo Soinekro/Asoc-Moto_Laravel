@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\EvaluacionPostulanteController;
 use App\Http\Controllers\Admin\EventoSocioController;
 use App\Http\Controllers\Admin\JustificacionController;
+use App\Http\Controllers\Admin\PagoController;
 use App\Http\Controllers\Admin\PostulanteController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SocioController;
@@ -45,6 +46,11 @@ Route::prefix('/vehiculos')->group(function () {
 
 Route::prefix('/evaluaciones')->group(function () {
     Route::get('/', [EvaluacionPostulanteController::class,'index'])->name('admin.evaluaciones.index');
+    Route::get('create', [EvaluacionPostulanteController::class,'create'])->name('admin.evaluaciones.create');
+    Route::post('store', [EvaluacionPostulanteController::class,'store'])->name('admin.evaluaciones.store');
+    Route::get('{id}/edit', [EvaluacionPostulanteController::class,'edit'])->name('admin.evaluaciones.edit');
+    Route::post('{id}/update', [EvaluacionPostulanteController::class,'update'])->name('admin.evaluaciones.update');
+    Route::delete('{id}/destroy', [EvaluacionPostulanteController::class,'destroy'])->name('admin.evaluaciones.destroy');
 });
 
 Route::prefix('/eventos')->group(function () {
@@ -57,6 +63,17 @@ Route::prefix('/justificaciones')->group(function () {
     Route::get('/', [JustificacionController::class,'index'])->name('admin.justificaciones.index');
     Route::get('create', [JustificacionController::class,'create'])->name('admin.justificaciones.create');
     Route::post('store', [JustificacionController::class,'store'])->name('admin.justificaciones.store');
-    Route::get('edit', [JustificacionController::class,'edit'])->name('admin.justificaciones.edit');
-    Route::post('update', [JustificacionController::class,'update'])->name('admin.justificaciones.update');
+    Route::get('{justificacion}/edit', [JustificacionController::class,'edit'])->name('admin.justificaciones.edit');
+    Route::post('{justificacion}/update', [JustificacionController::class,'update'])->name('admin.justificaciones.update');
+    Route::delete('{justificacion}', [JustificacionController::class,'destroy'])->name('admin.justificaciones.destroy');
+});
+Route::prefix('/pagos')->group(function () {
+    Route::get('/', [PagoController::class,'index'])->name('admin.pagos.index');
+    Route::delete('{justificacion}', [PagoController::class,'destroy'])->name('admin.pagos.destroy');
+    /*
+    Route::get('create', [JustificacionController::class,'create'])->name('admin.justificaciones.create');
+    Route::post('store', [JustificacionController::class,'store'])->name('admin.justificaciones.store');
+    Route::get('{justificacion}/edit', [JustificacionController::class,'edit'])->name('admin.justificaciones.edit');
+    Route::post('{justificacion}/update', [JustificacionController::class,'update'])->name('admin.justificaciones.update');
+    Route::delete('{justificacion}', [JustificacionController::class,'destroy'])->name('admin.justificaciones.destroy'); */
 });
