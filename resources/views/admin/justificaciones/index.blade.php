@@ -2,7 +2,7 @@
 @section('title', 'Justificaciones')
 
 @section('content_header')
-<a href="{{ route('admin.justificaciones.create') }}" class="btn btn-warning float-right">Registrar Evento</a>
+<a href="{{ route('admin.justificaciones.create') }}" class="btn btn-warning float-right">Registrar Justificacion</a>
     <h1>Justificaciones</h1>
 @stop
 

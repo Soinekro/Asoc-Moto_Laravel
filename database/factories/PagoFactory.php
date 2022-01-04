@@ -21,15 +21,16 @@ class PagoFactory extends Factory
      */
     public function definition()
     {
+        $n = $this->faker->numerify('###');
         return [
             'type'=> $this->faker->randomElement(['boleta','factura']),
             'estadofe'=> $this->faker->randomElement(['0','1','2']),
             'concepto' => $this->faker->text(152),
-            'opgravadas' => 84.75,
+            'total' =>$n,
+            'opgravadas' => $n*100/118,
             'opinafectas' => 0,
             'opexoneradas' => 0,
-            'igv' => 15.25,
-            'total' => 100,
+            'igv' => $n*18/118,
             'socio_id' => $this->faker->numberBetween(1, 350),
         ];
     }

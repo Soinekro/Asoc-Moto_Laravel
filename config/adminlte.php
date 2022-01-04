@@ -238,13 +238,13 @@ return [
             'text' => 'Roles',
             'route'  => 'admin.roles.index',
             'icon' => 'fas fa-fw fa-user',
-            'can'=>'admin.roles.index',
+            'can' => 'admin.roles.index',
         ],
         [
             'text' => 'Usuarios y Roles',
             'route'  => 'admin.users.index',
             'icon' => 'fas fa-fw fa-user',
-            'can'=>'admin.users.index',
+            'can' => 'admin.users.index',
         ],
         ['header' => 'Administracion',],
         [
@@ -254,17 +254,17 @@ return [
                 [
                     'text' => 'Postulantes',
                     'route'  => 'admin.postulantes.index',
-                    'can'=>'admin.postulantes.index',
+                    'can' => 'admin.postulantes.index',
                 ],
                 [
                     'text'    => 'Socios',
                     'route'     => 'admin.socios.index',
-                    'can'=>'admin.socios.index',
+                    'can' => 'admin.socios.index',
                 ],
                 [
                     'text'    => 'Vehiculos Registrados',
                     'route'     => 'admin.vehiculos.index',
-                    'can'=>'admin.vehiculos.index',
+                    'can' => 'admin.vehiculos.index',
                 ],
             ],
 
@@ -273,18 +273,22 @@ return [
         [
             'text'       => 'Evaluaciones de Postulantes',
             'route'        => 'admin.evaluaciones.index',
+            'can' => 'admin.evaluacion.index',
         ],
         [
             'text'       => 'Eventos',
             'route'        => 'admin.eventos.index',
+            'can' => 'admin.evento.index',
         ],
         [
             'text'       => 'Justificaciones',
             'route'        => 'admin.justificaciones.index',
+            'can' => 'admin.justificaciones.index',
         ],
         [
             'text'       => 'Pagos',
             'route'        => 'admin.pagos.index',
+            'can' => 'admin.pagos.index',
         ],
 
     ],

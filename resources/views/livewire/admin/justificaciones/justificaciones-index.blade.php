@@ -28,7 +28,7 @@
                                 <label class="badge bg-success">Aprobado</label>
                             @endif
                             </td>
-
+                            @can('admin.socios.edit')
                             <td width="10px">
                                 <a class="btn btn-primary btn-sm"
                                     href="{{ route('admin.justificaciones.edit', $e) }}">Editar</a>
@@ -41,6 +41,7 @@
 
                                 </form>
                             </td>
+                            @endcan
                         </tr>
                     @endforeach
                 </tbody>

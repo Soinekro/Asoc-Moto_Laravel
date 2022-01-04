@@ -11,7 +11,9 @@
                         <th>Socio</th>
                         <th>Estado</th>
                         <th>Distrito</th>
+                        @can('admin.evaluacion.store')
                         <th>Acciones</th>
+                        @endcan
                     </tr>
                 </thead>
                 <tbody>
@@ -29,6 +31,7 @@
                                 @endif
                             </td>
                             <td>{{ $p->postulante->distrito }}</td>
+                            @can('admin.evaluacion.store')
                             <td width="10px">
                                 <a class="btn btn-primary btn-sm"
                                     href="{{ route('admin.evaluaciones.edit', $p) }}">Editar</a>
@@ -41,6 +44,7 @@
 
                                 </form>
                             </td>
+                            @endcan
                         </tr>
                     @endforeach
                 </tbody>

@@ -9,7 +9,10 @@
                 <tr>
                     <td>Nombres</td>
                     <td>Email</td>
+                    <td>Estado</td>
+                    @can('admin.socios.edit')
                     <td colspan="2" style="text-align: center">Acciones</td>
+                    @endcan
                 </tr>
             </thead>
             <tbody>                <tr>
@@ -22,6 +25,7 @@
                         @else
                             <label class="badge bg-danger">Inactivo</label>
                         @endif</td>
+                        @can('admin.socios.update')
                         <td width="10px">
                             <a class="btn btn-primary btn-sm" href="{{route('admin.socios.edit',$socio)}}">Editar</a>
                         </td>
@@ -31,6 +35,7 @@
                             @method('DELETE')
                         <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
                         </td>
+                        @endcan
                     </form>
                     </tr>
                 @endforeach

@@ -1,8 +1,9 @@
 @extends('adminlte::page')
-@section('title', 'Eventos')
+@section('title', 'Justificaciones')
 
 @section('content_header')
-    <h1>Registrar Evento</h1>
+    <h1>Registrar Justificacion</h1>
+    <script src="https://cdn.ckeditor.com/ckeditor5/31.1.0/classic/ckeditor.js"></script>
 @stop
 
 @section('content')
@@ -11,12 +12,13 @@
             {{ session('info') }}
         </div>
     @endif
-    <form action="{{ route('admin.eventos.store') }}" method="POST">
+    <form action="{{ route('admin.justificaciones.store') }}" method="POST">
         @csrf
-        @include('admin.eventos.partials.evento')
-        <button class="btn btn-primary float-right" type="submit">Registrar Evento</button>
+        @include('admin.justificaciones.partials.justificacion')
+        <button class="btn btn-primary float-right" type="submit">Registrar Justificacion</button>
     @stop
 
     @section('js')
+
 
     @endsection

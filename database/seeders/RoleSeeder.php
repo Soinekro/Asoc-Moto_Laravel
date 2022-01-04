@@ -62,13 +62,13 @@ class RoleSeeder extends Seeder
         Permission::create(['name'=>'admin.socios.index',
         'description'=>'ver socios'])->syncRoles([$role1,$role2,$role3,$role4,$role5]);
         Permission::create(['name'=>'admin.socios.create',
-        'description'=>'Insertar socio'])->syncRoles([$role1,$role2,$role3,$role4,$role5]);
+        'description'=>'Insertar socio'])->syncRoles([$role1,$role3,$role4,$role5]);
         Permission::create(['name'=>'admin.socios.store',
-        'description'=>'Crear socio'])->syncRoles([$role1,$role2,$role3,$role4,$role5]);
+        'description'=>'Crear socio'])->syncRoles([$role1,$role3,$role4,$role5]);
         Permission::create(['name'=>'admin.socios.update',
-        'description'=>'actualizar socio'])->syncRoles([$role1,$role2,$role3,$role4,$role5]);
+        'description'=>'actualizar socio'])->syncRoles([$role1,$role3,$role4,$role5]);
         Permission::create(['name'=>'admin.socios.edit',
-        'description'=>'editar socio'])->syncRoles([$role1,$role2,$role3,$role4,$role5]);
+        'description'=>'editar socio'])->syncRoles([$role1,$role3,$role4,$role5]);
         Permission::create(['name'=>'admin.socios.destroy',
         'description'=>'eliminar socio'])->syncRoles([$role1,$role3,$role4]);
         Permission::create(['name'=>'admin.socios.inactivos',
@@ -119,6 +119,32 @@ class RoleSeeder extends Seeder
         'description'=>'actualizar Evento'])->syncRoles([$role1,$role3]);
         Permission::create(['name'=>'admin.eventos.destroy',
         'description'=>'Crear Evento'])->syncRoles([$role1,$role3]);
+
+        Permission::create(['name'=>'admin.justificaciones.index',
+        'description'=>'ver Eventos'])->syncRoles([$role1,$role2,$role3,$role4,$role5,$role6]);
+        Permission::create(['name'=>'admin.justificaciones.create',
+        'description'=>'Crear justificacion'])->syncRoles([$role1,$role4,$role3,$role5,$role6]);
+        Permission::create(['name'=>'admin.justificaciones.store',
+        'description'=>'guardar justificacion'])->syncRoles([$role1,$role4,$role3,$role5,$role6]);
+        Permission::create(['name'=>'admin.justificaciones.edit',
+        'description'=>'editar justificacion'])->syncRoles([$role1,$role3]);
+        Permission::create(['name'=>'admin.justificaciones.update',
+        'description'=>'actualizar justificacion'])->syncRoles([$role1,$role3]);
+        Permission::create(['name'=>'admin.justificaciones.destroy',
+        'description'=>'Crear justificacion'])->syncRoles([$role1,$role3]);
+
+        Permission::create(['name'=>'admin.pagos.index',
+        'description'=>'ver pagos'])->syncRoles([$role1,$role3,$role4]);
+        Permission::create(['name'=>'admin.pagos.create',
+        'description'=>'Crear pago'])->syncRoles([$role1,$role4,$role3]);
+        Permission::create(['name'=>'admin.pagos.store',
+        'description'=>'guardar pago'])->syncRoles([$role1,$role4,$role3]);
+        Permission::create(['name'=>'admin.pagos.edit',
+        'description'=>'editar pago'])->syncRoles([$role1,$role3]);
+        Permission::create(['name'=>'admin.pagos.update',
+        'description'=>'actualizar pago'])->syncRoles([$role1,$role3]);
+        Permission::create(['name'=>'admin.pagos.destroy',
+        'description'=>'Crear pago'])->syncRoles([$role1,$role3]);
 
         User::create([
             'name'=>'Elder Jose Chumacero Jimenez',

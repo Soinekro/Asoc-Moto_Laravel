@@ -23,7 +23,7 @@
         </div>
 
         <div class="form-group col-md-6">
-            <label for="fecha_hora">Direccion</label>
+            <label for="fecha_hora">Fecha y Hora</label>
             <input type="datetime-local" min="9:00" max="16:00" autocomplete="null" @if(isset($evento)) value="{{$evento->fecha_hora}}" @else value="{{old('fecha_hora')}}" @endif name="fecha_hora" id="fecha_hora" placeholder=" @if(isset($evento)) {{$evento->fecha_hora}} @else Ingrese Fecha y hora del Evento @endif " class="form-control" >
             @error('fecha_hora')
                 <small class="text-danger">{{$message}}</small>

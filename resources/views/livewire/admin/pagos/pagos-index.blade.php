@@ -10,7 +10,7 @@
                         <th>Socio</th>
                         <th>concepto</th>
                         <th>op. gravadas</th>
-                        <th>op. inafectas</th>
+                        <th>igv</th>
                         <th>total</th>
                         <th>estado</th>
                         <th colspan="4">acciones</th>
@@ -22,7 +22,7 @@
                             <td>{{$e->socio->user->name}}</td>
                             <td>{{$e->concepto}}</td>
                             <td>{{$e->opgravadas}}</td>
-                            <td>{{$e->opinafectas}}</td>
+                            <td>{{$e->igv}}</td>
                             <td>{{$e->total}}</td>
                             <td>
                                 @if ($e->estadofe == 0)

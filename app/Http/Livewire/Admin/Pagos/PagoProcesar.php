@@ -47,7 +47,7 @@ class PagoProcesar extends Component
         $comprobante = array(
             'tipodoc'           =>  '03', //01: FA, 03: BV
             'serie'             =>  'B001',
-            'correlativo'       =>  rand(1,1000),
+            'correlativo'       =>  $this->pago->id,
             'fecha_emision'     =>  date('Y-m-d'),
             'moneda'            =>  'PEN',
             'total_opgravadas'  =>  0,
@@ -66,13 +66,13 @@ class PagoProcesar extends Component
                 'descripcion'               =>  'por la Falta que me haces :v',
                 'cantidad'                  =>  1,
                 'unidad'                    =>  'NIU',
-                'valor_unitario'            =>  84.75,
-                'precio_unitario'           =>  100,
+                'valor_unitario'            =>  $this->pago->opgravadas,
+                'precio_unitario'           =>  $this->pago->total,
                 'tipo_precio'               =>  '01', //01:CON IGV, 02: SIN IGV
-                'igv'                       =>  15.25,
+                'igv'                       =>  $this->pago->igv,
                 'porcentaje_igv'            =>  18,
-                'valor_total'               =>  84.75,
-                'importe_total'             =>  100,
+                'valor_total'               =>  $this->pago->opgravadas,
+                'importe_total'             =>  $this->pago->total,
                 'codigo_afectacion_alt'     =>  '10', //10: GRAVADOS/IGV, 20: EXONERADOS, 30: INAFECTOS
                 'codigo_afectacion'         =>  '1000',
                 'nombre_afectacion'         =>  'IGV',
@@ -109,14 +109,14 @@ class PagoProcesar extends Component
         $comprobante['total_texto'] = $n->toInvoice($comprobante['total'], 2, 'SOLES');
         //paso 1 crear xml
         $nombreXML = $emisor["ruc"] . "-" . $comprobante['tipodoc'] . '-' . $comprobante['serie'] . '-' . $comprobante['correlativo'];
-        $ruta = public_path() . '\\xml\\';
+        $ruta = storage_path('app\\public\\Facturacion') . '\\xml\\';
         $xml = new Xml();
         $xml->CrearXML($nombreXML, $ruta, $emisor, $cliente, $comprobante, $detalle);
         //fin paso 1
         $objApi = new ApiFacturacion();
         $rutacertificado = public_path() . '\\certificados\\';
-        $ruta_archivo_cdr = public_path() . '\\cdr\\';
-        $ruta_archivoxml = public_path() . '\\xml\\';
+        $ruta_archivo_cdr = storage_path('app\\public\\Facturacion') . '\\cdr\\';
+        $ruta_archivoxml = storage_path('app\\public\\Facturacion') . '\\xml\\';
 
         $estadofe = $objApi->EnviarComprobanteElectronico($emisor, $nombreXML, $rutacertificado, $ruta_archivoxml, $ruta_archivo_cdr);
         $pago->update([

@@ -12,6 +12,13 @@ use Illuminate\Support\Facades\Mail;
 
 class EventoSocioController extends Controller
 {
+    /* public function __construct()
+    {
+        $this->middleware('can:admin.eventos.index')->only('index');
+        $this->middleware('can:admin.eventos.destroy')->only('destroy');
+        $this->middleware('can:admin.eventos.create')->only('create', 'store');
+        $this->middleware('can:admin.eventos.edit')->only('update','edit','show');
+    } */
     public function index(){
         return view('admin.eventos.index');
     }
@@ -27,6 +34,7 @@ class EventoSocioController extends Controller
         $socios = Socio::where('status','=',1)
         ->join('users','socios.user_id','=','users.id')
         ->pluck('email');
+        EventoSocio::create($request->all());
         $evento = new InviteEvent($request->all());
         Mail::to($socios)->send($evento);
         return redirect()->route('admin.eventos.index')->with('info','Evento Creado con Exito');

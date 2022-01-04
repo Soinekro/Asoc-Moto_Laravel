@@ -11,10 +11,10 @@
             {{ session('info') }}
         </div>
     @endif
-       <form action="{{route('admin.eventos.update',$evento)}}" method="POST" >
+       <form action="{{route('admin.justificaciones.update',$evento)}}" method="POST" >
         @csrf
-        @include('admin.eventos.partials.evento')
-        <button class="btn btn-success float-right" type="submit">Editar Postulante</button>
+        @include('admin.justificaciones.partials.justificacion')
+        <button class="btn btn-success float-right" type="submit">Editar Justificacion</button>
     </form>
 @stop
 

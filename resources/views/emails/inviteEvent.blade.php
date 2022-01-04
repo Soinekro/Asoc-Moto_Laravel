@@ -13,7 +13,7 @@
     en la siguiente Locacion
     <strong style="color: blue">{{$correo['direccion']}}</strong>
     <footer>
-        Nos despedimos Deceandole que tenga un buen dia,
+        Nos despedimos Deseandole que tenga un buen dia,
         si tiene inconvenientes, Puede presentar <a href="http://asoc-moto_proyect.test/admin/justificaciones/create">una justificacion</a>
     </footer>
 </body>
